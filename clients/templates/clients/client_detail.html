@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} Детали по клиенту {{ client.full_name }} {% endblock title %}
+{% block content %}
+
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">Клиент:</h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{client.full_name}}</h1>
+        <div class="flex mb-4">
+          <a href="{% url 'clients:client-detail' client.pk %}"
+             class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Обзор</a>
+          <a href="{% url 'clients:client-update' client.pk %}"
+             class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Изменить</a>
+          <a href="{% url 'clients:category-update' client.pk %}"
+             class="flex-grow border-b-2 border-gray-300 py-2 text-lg">Категория</a>
+        </div>
+        <p class="text-gray-500 leading-relaxed mb-2">Описание:</p>
+        <p class="ml-auto text-gray-900 py-2">{{ client.description }}</p>
+
+
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">E-mail</span>
+          <span class="ml-auto text-gray-900">{{ client.email }}</span>
+        </div>
+
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Назначеный менеджер</span>
+          <span class="ml-auto text-gray-900">{{client.sales_manager}}</span>
+        </div>
+
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Последний звонок</span>
+          <span class="ml-auto text-gray-900">{{client.phoned}}</span>
+        </div>
+
+        <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+          <span class="text-gray-500">Дата добавления</span>
+          <span class="ml-auto text-gray-900">{{client.date_added }}</span>
+        </div>
+
+        <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+          <span class="text-gray-500">Файл по клиенту</span>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
