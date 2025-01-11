@@ -143,12 +143,4 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 
 MEIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-"""
-admin
-12345
 
-TestUser
-Draka2019
-
-
-"""
